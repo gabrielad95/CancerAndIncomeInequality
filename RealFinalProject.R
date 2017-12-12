@@ -4,7 +4,6 @@ read.csv("incomeinequality.csv") -> incomedata
 #check you have read in the right data
 head(incomedata)
 
-
 #make a plot that shows income inequality by county and label the axis
 data <- read.csv("incomeinequality.csv", header=T,sep=",")
 attach(data)
@@ -36,10 +35,7 @@ Incidence_Rate_California_Counties$NewPop
 Incidence_Rate_California_Counties$Percentage<-(Incidence_Rate_California_Counties$Average.Annual.Count/Incidence_Rate_California_Counties$NewPop)*100
 Incidence_Rate_California_Counties$Percentage
 
-
-class(County)
-#Incidence_Rate_California_Counties <- data.frame(apply(Incidence_Rate_California_Counties, 2, unclass))
-
+#make plot of cancer rates by county in descending order
 library(ggplot2)
 
 plot_cancer_rate <- ggplot(Incidence_Rate_California_Counties, aes(x = reorder(County, -Incidence_Rate_California_Counties$Percentage), y = Incidence_Rate_California_Counties$Percentage)) +
