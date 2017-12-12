@@ -50,3 +50,8 @@ plot_cancer_rate <- ggplot(Incidence_Rate_California_Counties, aes(x = reorder(C
   theme(axis.title = element_text(family = "Trebuchet MS", color="black", face="bold", size=15)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   theme(plot.title = element_text(hjust = 0.5)) 
+
+require("gridExtra")
+
+grid.arrange(arrangeGrob(plot_cancer_rate))
+
