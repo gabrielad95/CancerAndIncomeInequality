@@ -51,3 +51,18 @@ require("gridExtra")
 
 grid.arrange(arrangeGrob(plot_cancer_rate))
 
+#Make third plot for median income vs. percentage  of cancer 
+plot_cancer_rate2 <- ggplot(Incidence_Rate_California_Counties, aes(x = reorder(Incidence_Rate_California_Counties$Median_Income, Incidence_Rate_California_Counties$Percentage), y = Incidence_Rate_California_Counties$Percentage)) +
+  geom_bar(stat = "identity") + geom_line() +
+  ggtitle("Perevalence of Cancer in correlation with Median Income") +
+  labs(x="Median Income",y="Percentage of Cancer") + 
+  theme(plot.title = element_text(family = "Trebuchet MS", color="black", face="bold", size=19, hjust=0)) +
+  theme(axis.title = element_text(family = "Trebuchet MS", color="black", face="bold", size=15)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(plot.title = element_text(hjust = 0.5)) 
+require("gridExtra")
+grid.arrange(arrangeGrob(plot_cancer_rate2))
+
+Incidence_Rate_California_Counties$Median_Income
+class(Incidence_Rate_California_Counties$Median_Income)
+
